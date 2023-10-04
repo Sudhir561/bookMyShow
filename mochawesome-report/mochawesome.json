@@ -1,0 +1,166 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 2,
+    "pending": 0,
+    "failures": 2,
+    "start": "2023-10-03T20:22:31.662Z",
+    "end": "2023-10-03T20:22:36.289Z",
+    "duration": 4627,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "08ef11f8-4269-46e4-b02c-d92c36171f00",
+      "title": "",
+      "fullFile": "D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\__tests__\\api.test.js",
+      "file": "\\__tests__\\api.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "64daf5c6-5d71-470c-9fa0-29040f5600be",
+          "title": "Movie Ticket Booking API",
+          "fullFile": "D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\__tests__\\api.test.js",
+          "file": "\\__tests__\\api.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should successfully book a ticket",
+              "fullTitle": "Movie Ticket Booking API should successfully book a ticket",
+              "timedOut": false,
+              "duration": 3508,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "chai\n  .request(app)\n  .post('/api/booking')\n  .send({ movie: 'Sample Movie', seats: { A1: 2 }, slot: 'Morning' })\n  .end((err, res) => {\n    expect(res).to.have.status(200);\n    expect(res.body).to.be.an('object');\n    expect(res.body.movie[0]).to.equal( 'Sample Movie' );\n    expect(res.body.slot[0]).to.equal('Morning');\n    expect(res.body.seats.A1[0]).to.equal(2)\n    \n    done();\n  });",
+              "err": {
+                "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 409",
+                "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 409\n    at D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\__tests__\\api.test.js:16:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:857:12)\n    at D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\node_modules\\superagent\\lib\\node\\index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:21:7)\n    at endReadableNT (_stream_readable.js:1218:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                "diff": "- 409\n+ 200\n"
+              },
+              "uuid": "eba07ee8-4b6b-4172-8b56-21219b67876b",
+              "parentUUID": "64daf5c6-5d71-470c-9fa0-29040f5600be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle invalid input",
+              "fullTitle": "Movie Ticket Booking API should handle invalid input",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai\n  .request(app)\n  .post('/api/booking')\n  .send({ movie: \"\", seats: { A1: 2 }, slot: 'Evening' }) // movie and slot should not be empty and  atleast select one seat\n  .end((err, res) => {\n    expect(res).to.have.status(400);\n    done();\n  });",
+              "err": {},
+              "uuid": "f3f31815-dd66-4fa9-9362-10b11308fd6e",
+              "parentUUID": "64daf5c6-5d71-470c-9fa0-29040f5600be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle seat availability conflict",
+              "fullTitle": "Movie Ticket Booking API should handle seat availability conflict",
+              "timedOut": false,
+              "duration": 688,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai\n  .request(app)\n  .post('/api/booking')\n  .send({ movie: 'Sample Movie', seats: { A1: 1 }, slot: 'Morning' })\n  .end(() => {\n    chai\n      .request(app)\n      .post('/api/booking')\n      .send({ movie: 'Sample Movie', seats: { A1: 1 }, slot: 'Morning' })\n      .end((err, res) => {\n        expect(res).to.have.status(409);\n        done();\n      });\n  });",
+              "err": {},
+              "uuid": "64bbb68d-adbf-4bca-a3a4-b25575b4c2dc",
+              "parentUUID": "64daf5c6-5d71-470c-9fa0-29040f5600be",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should handle no previous bookings found",
+              "fullTitle": "Movie Ticket Booking API should handle no previous bookings found",
+              "timedOut": false,
+              "duration": 410,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "chai\n  .request(app)\n  .get('/api/booking')\n  .end((err, res) => {\n    expect(res).to.have.status(404);\n    expect(res.body).to.be.an('object');\n    expect(res.body.message).to.equal('No previous booking found');\n    done();\n  });",
+              "err": {
+                "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 404 but got 200",
+                "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 404 but got 200\n    at D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\__tests__\\api.test.js:104:29\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:857:12)\n    at D:\\book-ticket\\Book-A-Movie-Ticket-Fullstack-Boilerplate-main\\src\\node_modules\\superagent\\lib\\node\\index.js:1070:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:21:7)\n    at endReadableNT (_stream_readable.js:1218:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)",
+                "diff": "- 200\n+ 404\n"
+              },
+              "uuid": "3bc5a71d-f869-474b-bf6a-748839409cdb",
+              "parentUUID": "64daf5c6-5d71-470c-9fa0-29040f5600be",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f3f31815-dd66-4fa9-9362-10b11308fd6e",
+            "64bbb68d-adbf-4bca-a3a4-b25575b4c2dc"
+          ],
+          "failures": [
+            "eba07ee8-4b6b-4172-8b56-21219b67876b",
+            "3bc5a71d-f869-474b-bf6a-748839409cdb"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4612,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

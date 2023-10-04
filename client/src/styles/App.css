@@ -1,0 +1,123 @@
+.movie-column, .seat-column, .slot-column {
+    display: inline-block;
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    border: 1px rgb(14, 13, 13) ridge;
+    padding: 12px 15px;
+    line-height: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* box-shadow: 0 0 2px 2px; */
+}
+
+.movie-row, .seat-row, .slot-row {
+    border-radius: 10px;
+    border: 1px black ridge;
+    padding: 10px;
+    margin-bottom: 10px;
+    ;
+}
+
+.seat-column {
+    min-width: 100px;
+    text-align: center;
+    padding-bottom: 15px;
+    ;
+}
+
+.book-button button {
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1em;
+    color: white;
+    background: rgb(44, 209, 88);
+    background: -moz-linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
+    background: -webkit-linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
+    background: linear-gradient(233deg, rgba(44, 209, 88, 1) 0%, rgba(44, 108, 224, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2cd158", endColorstr="#2c6ce0", GradientType=1);
+    padding: 5px 15px;
+    font-weight: 500;
+    border:none;
+    cursor: pointer;
+}
+
+.movie-column-selected, .seat-column-selected, .slot-column-selected {
+    background: rgb(211, 115, 115);
+    display: inline-block;
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    border: 1px rgb(14, 13, 13) ridge;
+    padding: 12px 15px;
+    line-height: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* box-shadow: 0 0 5px 5px; */
+}
+
+input {
+    width: 50px;
+    border-color: rgb(196, 196, 196);
+    border-width: 1px;
+}
+
+.last-order {
+    border-radius: 10px;
+    border: 1px black ridge;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width:30%
+    ;
+}
+
+.container{
+    display:flex;
+    gap: 20px;
+    margin:10px;
+    align-items: center;
+}
+
+*{
+    /* background-color: rgb(135, 227, 227); */
+    background: rgb(49,44,45);
+    background: linear-gradient(297deg,
+     rgba(49,44,45,0.9887488442642682) 0%,
+      rgba(157,192,169,1) 0%, rgba(220,232,124,1) 100%); 
+}
+
+.list{
+    list-style-type:none
+}
+
+h3 span{
+    font-weight: 300;
+    font-size: 24px;
+}
+
+h5 span{
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.seat-type{
+    font-size:20px ;
+}
+
+.msg{
+    background-color: rgb(135, 227, 227);
+    color: brown;
+    font-size: 22px;
+    display:relative;
+    text-align: center;
+    top:50%;
+    left: 50%;
+    font-weight: 700;
+   
+    
+}
+
+
+.validation-error{
+    color: red;
+}
+
