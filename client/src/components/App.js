@@ -4,10 +4,18 @@ import "../styles/App.css";
 import "../styles/bootstrap.min.css";
 import { movies, slots, seats } from "./data";
 
+const initialSeats={
+  A1: "0",
+  A2: "0",
+  A3: "0",
+  A4: "0",
+  D1: "0",
+  D2: "0",
+}
 function App() {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState(null);
-  const [selectedSeats, setSelectedSeats] = useState({});
+  const [selectedSeats, setSelectedSeats] = useState(initialSeats);
   const [previousBooking, setPreviousBooking] = useState(null);
   const [showBookingMessage, setShowBookingMessage] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -55,7 +63,7 @@ function App() {
     fetchPreviousBooking();
     
 
-    fetchPreviousBooking();
+    
   }, [selectedMovie]);
 
   const handleMovieClick = (movie) => {
@@ -78,7 +86,9 @@ function App() {
 
   const handleSeatClick = (seat) => {
     // Handle seat click
+    // setSelectedSeats({ ...selectedSeats, [seat]: "0" });
   };
+  
 
   const handleSubmit = async () => {
     const errors = {
@@ -103,10 +113,34 @@ function App() {
         // Clear selections and local storage
         setSelectedMovie(null);
         setSelectedSlot(null);
-        setSelectedSeats({});
+        //console.log(initialSeats)
+        setSelectedSeats(initialSeats);
+        
         localStorage.removeItem("movie");
         localStorage.removeItem("slot");
         localStorage.removeItem("seats");
+
+       
+      // Remove selected classes for movies
+     const movieElements = document.querySelectorAll(".movie-column-selected");
+     movieElements.forEach((element) => {
+       element.classList.remove("movie-column-selected");
+       element.classList.add('movie-column')
+     });
+
+// Remove selected classes for slots
+      const slotElements = document.querySelectorAll(".slot-column-selected");
+      slotElements.forEach((element) => {
+      element.classList.remove("slot-column-selected");
+      element.classList.add('slot-column')
+      });
+
+// Remove selected classes for seats
+        const seatElements = document.querySelectorAll(".seat-column-selected");
+        seatElements.forEach((element) => {
+       element.classList.remove("seat-column-selected");
+       element.classList.add('seat-column')
+      });
 
         // Hide success message after 5 seconds
         setTimeout(() => {
@@ -158,7 +192,7 @@ function App() {
           {seats.map((seat) => (
             <div
               key={seat}
-              className={`seat-column ${selectedSeats[seat] !== undefined ? "seat-column-selected" : ""}`}
+              className={`seat-column ${selectedSeats[seat] !== initialSeats[seat]? "seat-column-selected" : ""}`}
               onClick={() => handleSeatClick(seat)}
             >
               <p className="seat-type">{`Type ${seat}`}</p>
