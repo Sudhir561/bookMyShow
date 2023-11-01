@@ -67,6 +67,7 @@ function App() {
   }, [selectedMovie]);
 
   const handleMovieClick = (movie) => {
+   
     setSelectedMovie(movie);
     localStorage.setItem("movie", movie);
     
@@ -94,7 +95,9 @@ function App() {
     const errors = {
       movie: !selectedMovie ? "*Please select a movie." : "",
       slot: !selectedSlot ? "*Please select a slot." : "",
-      seats: Object.keys(selectedSeats).length === 0 ? "*Please select at least one seat." : "",
+      seats: Object.values(selectedSeats).some(seatValue => seatValue !== "0") ? "" : "*Please select at least one seat."
+
+
     };
 
     setValidationErrors(errors);
