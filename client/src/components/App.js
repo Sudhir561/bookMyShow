@@ -37,7 +37,7 @@ function App() {
 
     async function fetchPreviousBooking() {
       try {
-        const response = await axios.get("http://localhost:8080/api/booking");
+        const response = await axios.get("https://bookmyshow-backend-xipo.onrender.com/api/booking");
     
         if (response.status === 200) {
           // If a booking is found, set it in the state
@@ -105,7 +105,7 @@ function App() {
     if (Object.values(errors).every((error) => !error)) {
       // Valid form submission
       try {
-        const response = await axios.post("http://localhost:8080/api/booking", {
+        const response = await axios.post("https://bookmyshow-backend-xipo.onrender.com/api/booking", {
           movie: selectedMovie,
           slot: selectedSlot,
           seats: selectedSeats,
