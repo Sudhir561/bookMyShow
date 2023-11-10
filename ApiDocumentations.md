@@ -15,11 +15,11 @@ For Frontend :-<br>
 For Backend :- <br>
 	 
 
-   (Get api and post api on booking-api folder on postman)
+ postman link-  (Get api and post api on booking-api folder on postman)
    
-	postman link-https://www.postman.com/sudhir561/workspace/api-demo/folder/18127873-d3c0520b-51cf-4c76-b12f-04f284cb5bf8?ctx=documentation
+https://www.postman.com/sudhir561/workspace/api-demo/folder/18127873-d3c0520b-51cf-4c76-b12f-04f284cb5bf8?ctx=documentation
 
-   // backend api deploy on render.com
+   // backend api deploy on render.com,
 	Live Link = https://bookmyshow-backend-xipo.onrender.com/api/booking
 
 This documentation provides detailed information on how to interact with our API to access various resources and functionalities within our application. This guide will help you integrate with our API seamlessly.
