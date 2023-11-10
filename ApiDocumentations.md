@@ -1,5 +1,26 @@
 ## Api Documentations
 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Api Links/Endpoints
+-------------------
+
+For Frontend :-<br>
+	On  local System = http://localhost:3000
+	<br>
+	Live Link  	=  https://book-show-ticket.netlify.app
+
+For Backend :- <br>
+	 
+
+   (Get api and post api)
+	postman link-https://www.postman.com/sudhir561/workspace/api-demo/folder/18127873-d3c0520b-51cf-4c76-b12f-04f284cb5bf8?action=share&creator=18127873&ctx=documentation
+
+   // backend api deploy on render.com
+	Live Link = https://bookmyshow-backend-xipo.onrender.com/api/booking
+
 This documentation provides detailed information on how to interact with our API to access various resources and functionalities within our application. This guide will help you integrate with our API seamlessly.
 	
 -----------------------------------------------------------------------------
@@ -129,25 +150,26 @@ it will give you a response with an error
 	Status : 200OK,
 	Response body:
 			{
-    		 "movie": "Suraj par mangal bhari,
+    		 "movie":[ "Suraj par mangal bhari],
    			 "seats": {
-						"A1": 5,
-						"A2": 0,
-						"A3": 4,
-						"A4": 0,
-						"D1": 0,
-						"D2": 0
+						"A1": [5],
+						"A2": [0],
+						"A3": [4],
+						"A4": [0],
+						"D1": [0],
+						"D2": [0]
     				  },
-   			 "slot": "03:00 PM"
+   			 "slot": ["03:00 PM"]
 			}
 screenshot-
 ![last booking](https://github.com/Sudhir561/bookMyShow/assets/89014041/d8d996a8-9e6a-4f19-a78f-4da57cbf7666)
   	If there is no movies in our database it will send a response
-		Status : 404,
+		Status: 404,
 
-   		Response : {
+   		Response: {
         	  	  	message: "no previous booking found." 
 			       };
+				   
 screenshot-
 ![backend-no previous ](https://github.com/Sudhir561/bookMyShow/assets/89014041/ea12fed7-f114-418d-b1a4-bff09180d787)
 
@@ -163,17 +185,6 @@ screenshot-
 
 ..............................................................................................
 
-Api Links/Endpoints
--------------------
 
-For Frontend :-<br>
-	On  local System = http://localhost:3000
-	<br>
-	Live Link  	=  https://book-show-ticket.netlify.app
-
-For Backend :- <br>
-	POST Request =  http://localhost:8080/api/booking  
-	GET Request =  http://localhost:8080/api/booking  
-	Live Link = https://bookmyshow-backend-xipo.onrender.com/api/booking
 
 =====================================================================
