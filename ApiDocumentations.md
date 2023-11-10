@@ -15,8 +15,9 @@ For Frontend :-<br>
 For Backend :- <br>
 	 
 
-   (Get api and post api)
-	postman link-https://www.postman.com/sudhir561/workspace/api-demo/folder/18127873-d3c0520b-51cf-4c76-b12f-04f284cb5bf8?action=share&creator=18127873&ctx=documentation
+   (Get api and post api on booking-api folder on postman)
+   
+	postman link-https://www.postman.com/sudhir561/workspace/api-demo/folder/18127873-d3c0520b-51cf-4c76-b12f-04f284cb5bf8?ctx=documentation
 
    // backend api deploy on render.com
 	Live Link = https://bookmyshow-backend-xipo.onrender.com/api/booking
@@ -45,10 +46,10 @@ This documentation provides detailed information on how to interact with our API
 	It is POST REQUEST.		
 	This POST Api is for Creating a New Movie Booking with the use of Schema.
 	
-	Endpoint     : 	https://bookmyshow-backend-xipo.onrender.com/api/booking 
-	Method       : 	POST
-	Content-Type :  application/json
-	Description  :	This endpoint allows you to create a new movie booking.
+	Endpoint: 	https://www.postman.com/sudhir561/workspace/api-demo/request/18127873-5aac10e5-9acb-4cfa-87ea-de1efed69d91?ctx=documentation
+	Method: 	POST
+	Content-Type:  application/json
+	Description:	This endpoint allows you to create a new movie booking.
 	Request body :
 				{
                  "movie":"Suraj par mangal bhari",
@@ -99,8 +100,8 @@ it will give you a response with an error
 
 		Status   : 400 Bad Request,
 		Response : {
-   					 "ERROR": "Slot is  Required" 
-					}
+   			     "ERROR": "Slot is  Required" 
+			   }
 'Same for movie name and seats if its empty' 
 	{
    		 "ERROR": "Movie name is required" 
@@ -117,16 +118,16 @@ In Other Cases if not able to book it will throw errors depend on the conditions
 	
 		Status 	 : 400 Bad Request,
 		Response :  {
-   		 			"ERROR": error (whatever error will come it shows here)
-					},
+   		 		"ERROR": error (whatever error will come it shows here)
+			    },
 
 In Case you try to hit with same request data which is already existing 
 it will give you a response with an error 
 
         Status 	 : 409 Conflict,
         Response:{
-              "error": "Movie "Movie name" with slot 'slot Time' and seat(s) '{\"A1\":,\"A2\":,\"A3\":,\"A4\":,\"D1\":,\"D2\":}' already has a booking."
-                }
+                   "error": "Movie "Movie name" with slot 'slot Time' and seat(s) '{\"A1\":,\"A2\":,\"A3\":,\"A4\":,\"D1\":,\"D2\":}' already has a booking."
+                 }
 
 
   screenshot-
@@ -141,7 +142,8 @@ it will give you a response with an error
 	It is GET REQUEST.		
 	This GET Api is for getting the very last booking details.
 			
-	Endpoint     : 	http://localhost:8080/api/booking  
+	Endpoint     : 	https://www.postman.com/sudhir561/workspace/api-demo/request/18127873-325d896e-3597-432c-b29d-a370ca65baba?ctx=documentation
+
 	Method       : 	GET
 	Description  :	This endpoint allows you to get the details of the last booking made.
 
@@ -150,7 +152,7 @@ it will give you a response with an error
 	Status : 200OK,
 	Response body:
 			{
-    		 "movie":[ "Suraj par mangal bhari],
+    		 "movie": "Suraj par mangal bhari,
    			 "seats": {
 						"A1": [5],
 						"A2": [0],
@@ -166,10 +168,9 @@ screenshot-
   	If there is no movies in our database it will send a response
 		Status: 404,
 
-   		Response: {
+   		Response : {
         	  	  	message: "no previous booking found." 
 			       };
-				   
 screenshot-
 ![backend-no previous ](https://github.com/Sudhir561/bookMyShow/assets/89014041/ea12fed7-f114-418d-b1a4-bff09180d787)
 
@@ -179,9 +180,9 @@ screenshot-
 
 	
 		Status : 500,
-    	Response : {
-        	  	    error (whatever error happen it shows here)
-			       };
+    	Response: {
+        	    error (whatever error happen it shows here)
+		  };
 
 ..............................................................................................
 
